@@ -8,7 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
 
 </head>
 
@@ -18,28 +18,38 @@
         <h3>Enter the values below</h3>
 
         <form action="/" method="GET" class="input-container">
-            <div class="input-area">
+            <div class="loan-type-area">
+                <h4>Select your Loan Type:</h4>
                 <label for="loan-type">Loan Type</label>
                 <select name="loan-type" id="loan-type">
                     <option value="housing">Housing Loan</option>
                     <option value="car">Car Loan</option>
                     <option value="spending">Spending Loan</option>
                 </select>
+                <div class="interest-rate-area">
+                    <p>Interest Rate:</p>
+                    <p id="interest-rate"></p>
+                </div>
             </div>
             <div class="input-area">
-                <label for="loan-amount">Loan Amount</label>
-                <input type="number" min="0" step="any" id="loan-amount" placeholder="Enter the loan amount">
-                <label for="loan-amount">kr</label>
+                <!-- <label for="interest-rate">Interest Rate</label> -->
+                <!-- <input type="number" min="0" step="0.1" id="interest-rate" placeholder="Enter the interest rate"> -->
+                <!-- <label for="interest-rate">%</label> -->
             </div>
-            <div class="input-area">
-                <label for="interest-rate">Interest Rate</label>
-                <input type="number" min="0" step="0.1" id="interest-rate" placeholder="Enter the interest rate">
-                <label for="loan-amount">%</label>
-            </div>
-            <div class="input-area">
-                <label for="loan-period">Loan Period</label>
-                <input type="number" min="0" step="1" id="loan-period" placeholder="Enter the loan period">
-                <label for="loan-amount">years</label>
+            <div class="loan-amount-area">
+                <h4>Fill in the values below:</h4>
+
+                <div class="input-area">
+                    <label for="loan-amount">Loan Amount</label>
+                    <input type="number" min="0" step="any" id="loan-amount" placeholder="Enter the loan amount">
+                    <label for="loan-amount">kr</label>
+                </div>
+
+                <div class="input-area">
+                    <label for="loan-period">Loan Period</label>
+                    <input type="number" min="0" step="1" id="loan-period" placeholder="Enter the loan period">
+                    <label for="loan-amount">years</label>
+                </div>
             </div>
         </form>
 
@@ -47,9 +57,10 @@
 
         <div class="loan-summary">
             <h3>Your Summary</h3>
-            <p>Monthly Payment:</p>
-            <p id="summary-payment">kr</p>
-
+            <div class="loan-summary-results">
+                <!-- <p>Monthly Payment:</p> -->
+                <p id="summary-payment"></p>
+            </div>
         </div>
     </div>
     <script src="app.js"></script>
