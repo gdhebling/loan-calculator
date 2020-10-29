@@ -1,6 +1,6 @@
 const calculateButton = document.getElementById("calculate-button");
 
-// Getting the elements only to be used on keyup calculation function
+// Getting the elements to be used on keyup calculation function
 let loanType = document.getElementById("loan-type");
 let loanAmount = document.getElementById("loan-amount");
 let loanPeriod = document.getElementById("loan-period");
@@ -49,15 +49,15 @@ function logPMT() {
     // Check the loan type and assign its Interest Rate value
     switch (loanType.value) {
         case "housing":
-            interestRate = 5;
+            interestRate = 3.5;
             interestRateField.innerHTML = `${interestRate}%`;
             break;
         case "car":
-            interestRate = 4;
+            interestRate = 4.65;
             interestRateField.innerHTML = `${interestRate}%`;
             break;
         case "spending":
-            interestRate = 3;
+            interestRate = 12;
             interestRateField.innerHTML = `${interestRate}%`;
             break;
         default:
