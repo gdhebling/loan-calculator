@@ -44,8 +44,6 @@ function logPMT() {
     const loanAmount = document.getElementById("loan-amount").value;
     const loanPeriod = document.getElementById("loan-period").value;
 
-    console.log(inputValues);
-
     const summaryPayment = document.getElementById("summary-payment");
 
     // Check the loan type and assign its Interest Rate value
@@ -92,6 +90,7 @@ calculateButton.addEventListener("click", logPMT);
 [loanAmount, loanPeriod, loanType].forEach(function (event) {
     event.addEventListener("keyup", logPMT)
 });
+
 [loanAmount, loanPeriod, loanType].forEach(function (event) {
     event.addEventListener("click", logPMT)
 });
