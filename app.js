@@ -85,6 +85,8 @@ function logPMT() {
     }
 }
 
+logPMT();
+
 calculateButton.addEventListener("click", logPMT);
 
 [loanAmount, loanPeriod, loanType].forEach(function (event) {
