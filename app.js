@@ -56,7 +56,7 @@ function logPMT() {
             interestRate = 4.65;
             interestRateField.innerHTML = `${interestRate}%`;
             break;
-        case "spending":
+        case "consumer":
             interestRate = 12;
             interestRateField.innerHTML = `${interestRate}%`;
             break;
