@@ -70,28 +70,30 @@ function logPMT() {
     console.log("Interest Rate:", interestRate);
     console.log("Loan Period:", loanPeriod);
 
+    const resultPMT = PMT(
+        ((interestRate / 100) / 12),
+        (loanPeriod * 12),
+        (loanAmount)
+    );
+
     if (!loanAmount || !interestRate || !loanPeriod) {
         summaryPayment.innerHTML = "Please fill in all the required fields.";
     } else if (loanAmount === "0" || interestRate === "0" || loanPeriod === "0") {
         summaryPayment.innerHTML = "The values must be above zero.";
+    } else if (isNaN(resultPMT)) {
+        summaryPayment.innerHTML = "Please try again with alternative values.";
     } else {
         summaryPayment.innerHTML =
-            `The monthly payment is ${PMT(
-                ((interestRate / 100) / 12),
-                (loanPeriod * 12),
-                (loanAmount)
-            ) + " kr"}`;
+            `The monthly payment is <span> ${resultPMT} kr </span>`;
     }
 }
 
 logPMT();
 
 calculateButton.addEventListener("click", logPMT);
-
 [loanAmount, loanPeriod, loanType].forEach(function (event) {
     event.addEventListener("keyup", logPMT)
 });
-
 [loanAmount, loanPeriod, loanType].forEach(function (event) {
     event.addEventListener("click", logPMT)
 });
