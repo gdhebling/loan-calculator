@@ -51,19 +51,18 @@ function logPMT() {
         case "housing":
             interestRate = 5;
             interestRateField.innerHTML = `${interestRate}%`;
-            console.log("=== It's housing!");
             break;
         case "car":
             interestRate = 4;
-            console.log("=== It's car!");
+            interestRateField.innerHTML = `${interestRate}%`;
             break;
         case "spending":
             interestRate = 3;
-            console.log("=== It's spending!");
+            interestRateField.innerHTML = `${interestRate}%`;
             break;
         default:
-            interestRate = 1;
-            console.log("Please select a valid Loan Type.")
+            interestRate = 0;
+            interestRateField.innerHTML = `${interestRate}%`;
             break;
     }
 
