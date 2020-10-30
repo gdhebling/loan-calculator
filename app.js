@@ -167,8 +167,10 @@ function logPMT() {
 
     if (!loanAmount || !interestRate || !loanPeriod) {
         summaryPayment.innerHTML = "Please fill in all the required fields.";
+        tableBody.innerHTML = "";
     } else if (loanAmount === "0" || interestRate === "0" || loanPeriod === "0") {
         summaryPayment.innerHTML = "The values must be above zero.";
+        tableBody.innerHTML = "";
     } else {
         printResults();
     }
