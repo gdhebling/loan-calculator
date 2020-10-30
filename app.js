@@ -1,14 +1,13 @@
 const calculateButton = document.getElementById("calculate-button");
 
-// Getting the elements to be used on keyup calculation function
-let loanType = document.getElementById("loan-type");
+let loanGoal = document.getElementById("loan-goal");
 let loanAmount = document.getElementById("loan-amount");
 let loanPeriod = document.getElementById("loan-period");
 
 function PMT(rate, nper, pv, fv, type) {
     /*
     PMT formula is based on an Excel function
-    
+
     JavaScript formula based on ExcelFormulas.js
     Availability: https://gist.github.com/pies/4166888
 
@@ -35,19 +34,34 @@ function PMT(rate, nper, pv, fv, type) {
     return Math.abs(pmt).toFixed(2);
 }
 
-function logPMT() {
+function serialLoan(rate, period, pv, instYr) {
+    /* 
+    instYr:    instalments per year, 12 if omitted
+      */
 
-    // Getting the elements and their values
-    const loanType = document.getElementById("loan-type");
+    if (!instYr) instYr = 12;
+
+    ratePerInst = rate / instYr;
+    numInst = period * instYr;
+
+    interest = pv * ratePerInst;
+    repayment = pv / numInst;
+    payment = repayment + interest;
+    principal = (pv - repayment);
+
+    return {
+        interest,
+        repayment,
+        payment,
+        principal
+    };
+}
+
+function setInterestRate() {
+    const loanGoal = document.getElementById("loan-goal");
     let interestRateField = document.getElementById("interest-rate");
 
-    const loanAmount = document.getElementById("loan-amount").value;
-    const loanPeriod = document.getElementById("loan-period").value;
-
-    const summaryPayment = document.getElementById("summary-payment");
-
-    // Check the loan type and assign its Interest Rate value
-    switch (loanType.value) {
+    switch (loanGoal.value) {
         case "housing":
             interestRate = 3.5;
             interestRateField.innerHTML = `${interestRate}%`;
@@ -65,35 +79,102 @@ function logPMT() {
             interestRateField.innerHTML = `${interestRate}%`;
             break;
     }
+}
 
-    console.log("Loan amount:", loanAmount);
-    console.log("Interest Rate:", interestRate);
-    console.log("Loan Period:", loanPeriod);
+function logPMT() {
 
+    let loanAmount = document.getElementById("loan-amount").value;
+    let loanPeriod = document.getElementById("loan-period").value;
+    const loanType = document.getElementById("loan-type").value;
+    const summaryPayment = document.getElementById("summary-payment");
+    const tableBody = document.getElementById("table-body");
+
+    setInterestRate();
+
+    // Calculating serial loan
+    serialLoan(
+        (interestRate / 100),
+        (loanPeriod),
+        (loanAmount)
+    );
+
+    // Calculating annuity loan
     const resultPMT = PMT(
         ((interestRate / 100) / 12),
         (loanPeriod * 12),
         (loanAmount)
     );
 
+    function printResults() {
+        summaryPayment.innerHTML = `
+        <h3>Your Summary</h3>
+        `;
+
+
+        if (loanType === "serial-loan-type") {
+            summaryPayment.innerHTML = `
+            <p> Your first monthly payment is <span> ${payment.toFixed(2)} kr </span></p>
+            <h4>Report:</h4>
+            `;
+            tableBody.innerHTML = `
+                <table>
+                <thead>
+                <tr>
+                    <th>Period</th>
+                    <th>First Payment</th>
+                    <th>First Interest Payment</th>
+                    <th>Fixed Repayment</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>${numInst.toFixed(0)}</td>   
+                    <td>${payment.toFixed(2)} kr</td>
+                    <td>${interest.toFixed(2)} kr</td>
+                    <td>${repayment.toFixed(2)} kr</td>
+                </tr>
+                </tbody>
+                </table>
+                `
+        } else if (loanType === "annuity-loan-type") {
+            summaryPayment.innerHTML = `
+            <p> The monthly payment is <span> ${resultPMT} kr </span></p>
+            <h4>Report:</h4>
+            `;
+
+            tableBody.innerHTML = `
+                <table>
+                <thead>
+                <tr>
+                    <th>Period</th>
+                    <th>Monthly Payment</th>
+                    <th>Total Cost</th>
+                    <th>Interest Paid</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>${loanPeriod} years</td>   
+                    <td>${resultPMT} kr</td>
+                    <td>${(resultPMT * (loanPeriod * 12)).toLocaleString("no-NO")} kr</td>
+                    <td>${((resultPMT * (loanPeriod * 12)) - loanAmount).toLocaleString("no-NO")} kr</td>
+                </tr>
+                </tbody>
+                </table>
+                `
+        }
+    }
+
     if (!loanAmount || !interestRate || !loanPeriod) {
         summaryPayment.innerHTML = "Please fill in all the required fields.";
     } else if (loanAmount === "0" || interestRate === "0" || loanPeriod === "0") {
         summaryPayment.innerHTML = "The values must be above zero.";
-    } else if (isNaN(resultPMT)) {
-        summaryPayment.innerHTML = "Please try again with alternative values.";
     } else {
-        summaryPayment.innerHTML =
-            `The monthly payment is <span> ${resultPMT} kr </span>`;
+        printResults();
     }
 }
 
-logPMT();
+setInterestRate();
 
+loanGoal.addEventListener("change", setInterestRate);
 calculateButton.addEventListener("click", logPMT);
-[loanAmount, loanPeriod, loanType].forEach(function (event) {
-    event.addEventListener("keyup", logPMT)
-});
-[loanAmount, loanPeriod, loanType].forEach(function (event) {
-    event.addEventListener("click", logPMT)
-});

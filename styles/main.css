@@ -1,3 +1,4 @@
+/* Variables */
 * {
   margin: 0;
   padding: 0;
@@ -5,17 +6,17 @@
           box-sizing: border-box;
 }
 
-a {
+a,
+a:visited {
   text-decoration: none;
   color: inherit;
 }
 
-/* Variables */
 body {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-weight: 600;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -30,7 +31,7 @@ body {
   text-align: center;
 }
 
-.calculator-container {
+body .calculator-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,6 +49,17 @@ h1 {
   font-size: 3rem;
   font-weight: 800;
   margin: 1rem 0;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: 0;
+  width: 50%;
+  height: 1px;
+  background: currentColor;
 }
 
 h2 {
@@ -93,6 +105,9 @@ select {
   font-family: inherit;
   font-size: 0.875rem;
   text-align: center;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #fff;
 }
 
 .interest-rate-area {
@@ -113,6 +128,8 @@ select {
 
 .input-container {
   margin: 1rem 0;
+  background-color: #f6f3ef;
+  border-radius: 1rem;
 }
 
 .loan-type-area {
@@ -140,10 +157,65 @@ select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .loan-summary-results .summary-payment span {
   font-size: 1.3rem;
   font-weight: 700;
+}
+
+.loan-summary-report {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.loan-summary-report table {
+  width: 100%;
+  border-collapse: collapse;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.loan-summary-report table .table-body {
+  width: 100%;
+}
+
+.loan-summary-report table th {
+  background-color: #bfbafe;
+}
+
+.loan-summary-report table tr:nth-child(odd) {
+  background-color: #f6f3ef;
+}
+
+.loan-summary-report table tr,
+.loan-summary-report table th,
+.loan-summary-report table td {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 1.5rem;
+}
+
+.display-none {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

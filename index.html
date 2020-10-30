@@ -9,6 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
 
 </head>
@@ -18,15 +19,22 @@
         <h1>Loan Calculator</h1>
         <h3>Enter the values below</h3>
     </div>
-
     <div class="calculator-container">
-
         <form action="javascript:void(0);" method="GET" class="input-container">
             <div class="loan-type-area">
-                <h4>Select your Loan Type:</h4>
+                <h4>Select your Loan:</h4>
                 <div class="input-container">
                     <label for="loan-type">Loan Type</label>
                     <select name="loan-type" id="loan-type">
+                        <option value="serial-loan-type">Serial Loan</option>
+                        <option value="annuity-loan-type">Annuity Loan</option>
+                    </select>
+                </div>
+            </div>
+            <div class="loan-type-area">
+                <div class="input-container">
+                    <label for="loan-goal">Loan Objective</label>
+                    <select name="loan-goal" id="loan-goal">
                         <option value="housing">Housing Loan</option>
                         <option value="car">Car Loan</option>
                         <option value="consumer">Consumer Loan</option>
@@ -37,11 +45,8 @@
                     <p id="interest-rate"></p>
                 </div>
             </div>
-
             <div class="loan-input-area">
-
                 <h4>Fill in the values below:</h4>
-
                 <div class="input-area">
                     <div class="input-area-container">
                         <label for="loan-amount">Loan Amount</label>
@@ -51,7 +56,6 @@
                             <label for="loan-amount">kr</label>
                         </div>
                     </div>
-
                     <div class="input-area-container">
                         <label for="loan-period">Loan Period</label>
                         <div class="input-container"></div>
@@ -59,19 +63,23 @@
                         <label for="loan-amount">years</label>
                     </div>
                 </div>
-
             </div>
+            <p>*Calculated with 12 instalments per year</p>
+            <p>with Serial Loan as the loan type.</p>
             <button class="" id="calculate-button">Calculate</button>
         </form>
         <div class="loan-summary">
-            <h3>Your Summary</h3>
             <div class="loan-summary-results">
                 <!-- <p>Monthly Payment:</p> -->
                 <p class="summary-payment" id="summary-payment"></p>
             </div>
+            <div class="loan-summary-report" id="loan-summary-report">
+
+                <div id="table-header"></div>
+                <div id="table-body"></div>
+            </div>
         </div>
     </div>
-
     <script src="app.js"></script>
 </body>
 
