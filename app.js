@@ -118,6 +118,12 @@ function logPMT() {
         tableHeader.innerHTML = "";
         tableBody.innerHTML = "";
 
+        // To-do: Check if scroll if working to fill the div on the top of the page, not the bottom
+
+        document.querySelector('.loan-summary').scrollIntoView({
+            behavior: 'smooth'
+        });
+
 
         if (loanType === "serial-loan-type") {
 
@@ -135,8 +141,8 @@ function logPMT() {
                 let principalArray = [];
                 let repaymentArray = [];
                 summaryPayment.innerHTML = `
+                <h4>This is your Report:</h4>
                 <p> Your first monthly payment is <span> ${payment.toLocaleNorway()} </span></p>
-                <h4>Report:</h4>
                 `;
                 tableHeader.innerHTML = `
                     <tr>
@@ -197,8 +203,8 @@ function logPMT() {
 
         } else if (loanType === "annuity-loan-type") {
             summaryPayment.innerHTML = `
+            <h4>This is your Report:</h4>
             <p> The monthly payment is <span> ${resultPMT.toLocaleNorway()}</span></p>
-            <h4>Report:</h4>
             `;
 
             tableHeader.innerHTML = `

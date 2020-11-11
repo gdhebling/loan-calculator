@@ -29,6 +29,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  scroll-behavior: smooth;
 }
 
 body .calculator-container {

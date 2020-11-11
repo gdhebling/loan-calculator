@@ -29,6 +29,8 @@ body {
     align-items: center;
     text-align: center;
 
+    scroll-behavior: smooth;
+
     .calculator-container {
         display: flex;
         flex-direction: column;
