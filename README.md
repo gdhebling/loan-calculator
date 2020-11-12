@@ -1,9 +1,9 @@
-# Loan Calculator
+# New Loan Calculator
 ## Take Home Task
 ### About
 This is a simple web application for simulating the calculation of different loans.  
-You can select among Annuity Loan or Serial Loan types and the website will return if some average payment values.  
-[Click here for the Deployed Website](https://gdhebling.github.io/loan-calculator/)
+You can select among Annuity Loan or Serial Loan types, and between the Loan Objectice, which will alter the interest rate percentage. The application will then return the report according to the loan type. For the Serial Loan, it will also return an amortisation schedule table.    
+[Click here for the New Deployed Website](https://new-loan-calculator-gdh.netlify.app/)
 ### Technologies Used  
 HTML5, SCSS/CSS3, and JavaScript.
 ### Requirements
@@ -11,8 +11,6 @@ The application is expected to calculate the cost of a housing loan, with a simp
   
 The **Loan Type** selector alters which formula the program will use, while the **Loan Goal** selector changes the interest rate that will be used for the calculation.  
 So the idea is that it could easily be extended to cover other types of loans and payback schemes.  
-  
-Due to *technical difficulties*, the application is not, for the moment, returning the full amortisation schedule.
-
+ 
 ### Other
 Please don't hesitate to get in touch in case there is anything I could contribute to the talk. Being part of this take-home was a great and motivating experience and I would be glad to continue our conversation. 
