@@ -118,11 +118,7 @@ function logPMT() {
         tableHeader.innerHTML = "";
         tableBody.innerHTML = "";
 
-        // To-do: Check if scroll if working to fill the div on the top of the page, not the bottom
 
-        document.querySelector('.loan-summary').scrollIntoView({
-            behavior: 'smooth'
-        });
 
 
         if (loanType === "serial-loan-type") {
@@ -237,6 +233,9 @@ function logPMT() {
         tableBody.innerHTML = "";
     } else {
         printResults();
+        summaryPayment.scrollIntoView({
+            behavior: 'smooth', block: 'start'
+        });
     }
 }
 

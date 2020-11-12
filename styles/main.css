@@ -166,6 +166,10 @@ select {
           justify-content: center;
 }
 
+.loan-summary-results .summary-payment {
+  margin: 1rem 0;
+}
+
 .loan-summary-results .summary-payment span {
   font-size: 1.3rem;
   font-weight: 700;
