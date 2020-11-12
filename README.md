@@ -1,5 +1,7 @@
 # Loan Calculator
 ## Take Home Task
+### Edit 12.11.2020: 
+Please refer to the new version of this app at https://github.com/gdhebling/loan-calculator/tree/new-version
 ### About
 This is a simple web application for simulating the calculation of different loans.  
 You can select among Annuity Loan or Serial Loan types and the website will return if some average payment values.  
