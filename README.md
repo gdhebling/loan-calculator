@@ -12,5 +12,18 @@ The application is expected to calculate the cost of a housing loan, with a simp
 The **Loan Type** selector alters which formula the program will use, while the **Loan Goal** selector changes the interest rate that will be used for the calculation.  
 So the idea is that it could easily be extended to cover other types of loans and payback schemes.  
  
-### Other
-Please don't hesitate to get in touch in case there is anything I could contribute to the talk. Being part of this take-home was a great and motivating experience and I would be glad to continue our conversation. 
+## That's it!
+Thanks for reading! 😀 <br />
+I'm Guilherme. Front-End Web Developer. <br />
+
+<p align="left">
+
+You can find me on: <br />
+
+<a href="https://gdhebling.com"><img alt="website" width="26px" src="https://www.flaticon.com/svg/static/icons/svg/1828/1828555.svg" /></a>
+&nbsp;&nbsp;
+<a href="https://www.linkedin.com/in/gdhebling/"><img alt="linkedin" width="26px" src="https://image.flaticon.com/icons/svg/1383/1383262.svg" /></a>
+&nbsp;&nbsp;
+<a href="https://twitter.com/gdhebling"><img alt="twitter" width="26px" src="https://image.flaticon.com/icons/svg/1383/1383265.svg" /></a>
+
+</p>
