@@ -1,8 +1,5 @@
 const calculateButton = document.getElementById("calculate-button");
-
 let loanGoal = document.getElementById("loan-goal");
-let loanAmount = document.getElementById("loan-amount");
-let loanPeriod = document.getElementById("loan-period");
 
 Number.prototype.toLocaleNorway = function () {
     return this.toLocaleString("no-NO", {
@@ -86,7 +83,7 @@ function setInterestRate() {
     }
 }
 
-function logPMT() {
+function logResults() {
 
     let loanAmount = document.getElementById("loan-amount").value;
     let loanPeriod = document.getElementById("loan-period").value;
@@ -242,4 +239,4 @@ function logPMT() {
 setInterestRate();
 
 loanGoal.addEventListener("change", setInterestRate);
-calculateButton.addEventListener("click", logPMT);
+calculateButton.addEventListener("click", logResults);
