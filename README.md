@@ -1,7 +1,7 @@
 # New Loan Calculator
 ## Take Home Task
 ### About
-This is a simple web application for simulating the calculation of different loans.  
+This is a web application for simulating the calculation of different loans.  
 You can select among Annuity Loan or Serial Loan types, and between the Loan Objectice, which will alter the interest rate percentage. The application will then return the report according to the loan type. For the Serial Loan, it will also return an amortisation schedule table.    
 [Click here for the New Deployed Website](https://new-loan-calculator-gdh.netlify.app/)
 ### Technologies Used  
