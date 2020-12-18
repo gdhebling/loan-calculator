@@ -1,7 +1,5 @@
 # New Loan Calculator
 ## Take Home Task
-### Edit 12.11.2020: 
-Please refer to the new version of this app at https://github.com/gdhebling/loan-calculator/tree/new-version
 ### About
 This is a web application for simulating the calculation of different loans.  
 You can select among Annuity Loan or Serial Loan types, and between the Loan Objectice, which will alter the interest rate percentage. The application will then return the report according to the loan type. For the Serial Loan, it will also return an amortisation schedule table.    
