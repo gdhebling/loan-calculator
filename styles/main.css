@@ -29,6 +29,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  scroll-behavior: smooth;
 }
 
 body .calculator-container {
@@ -163,6 +164,10 @@ select {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.loan-summary-results .summary-payment {
+  margin: 1rem 0;
 }
 
 .loan-summary-results .summary-payment span {

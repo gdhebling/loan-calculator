@@ -29,6 +29,8 @@ body {
     align-items: center;
     text-align: center;
 
+    scroll-behavior: smooth;
+
     .calculator-container {
         display: flex;
         flex-direction: column;
@@ -147,6 +149,8 @@ select {
     justify-content: center;
 
     .summary-payment {
+        margin: 1rem 0;
+
         span {
             font-size: 1.3rem;
             font-weight: 700;
